@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+design by Sandip Godhaniya (https://dribbble.com/sandygodhaniya)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

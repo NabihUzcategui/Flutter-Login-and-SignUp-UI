@@ -2,16 +2,16 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_singup_page/config/palette.dart';
 
-class LoginSingupScreen extends StatefulWidget {
-  const LoginSingupScreen({super.key});
+class LoginSignupScreen extends StatefulWidget {
+  const LoginSignupScreen({super.key});
 
   @override
-  State<LoginSingupScreen> createState() => _LoginSingupScreenState();
+  State<LoginSignupScreen> createState() => _LoginSignupScreenState();
 }
 
-class _LoginSingupScreenState extends State<LoginSingupScreen> {
+class _LoginSignupScreenState extends State<LoginSignupScreen> {
   bool isMale = true;
-  bool isSingupScreen = true;
+  bool isSignupScreen = true;
   bool isRememberMe = false;
 
   @override
@@ -46,7 +46,7 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
                                 color: Colors.yellow[700]),
                             children: [
                               TextSpan(
-                                text: isSingupScreen ? ' Rizona' : ' Back',
+                                text: isSignupScreen ? ' Rizona' : ' Back',
                                 style: TextStyle(
                                     fontSize: 25.0,
                                     fontWeight: FontWeight.bold,
@@ -58,9 +58,9 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
                         height: 5.0,
                       ),
                       Text(
-                        isSingupScreen
+                        isSignupScreen
                             ? 'Signup to Continue'
-                            : 'Singin to Continue',
+                            : 'Signin to Continue',
                         style: const TextStyle(
                             letterSpacing: 1, color: Colors.white),
                       )
@@ -74,12 +74,12 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
 
           //Main container for login and signup
           AnimatedPositioned(
-              top: isSingupScreen ? 200.0 : 230.0,
+              top: isSignupScreen ? 200.0 : 230.0,
               duration: const Duration(milliseconds: 700),
               curve: Curves.bounceInOut,
               child: AnimatedContainer(
                 padding: const EdgeInsets.all(20.0),
-                height: isSingupScreen ? 380.0 : 250.0,
+                height: isSignupScreen ? 380.0 : 250.0,
                 width: MediaQuery.of(context).size.width - 40,
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
@@ -103,7 +103,7 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
                           GestureDetector(
                             onTap: () {
                               setState(() {
-                                isSingupScreen = false;
+                                isSignupScreen = false;
                               });
                             },
                             child: Column(
@@ -113,12 +113,12 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: !isSingupScreen
+                                    color: !isSignupScreen
                                         ? Palette.activeColor
                                         : Palette.textColor1,
                                   ),
                                 ),
-                                if (!isSingupScreen)
+                                if (!isSignupScreen)
                                   Container(
                                     margin: const EdgeInsets.only(top: 3.0),
                                     height: 2.0,
@@ -131,22 +131,22 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
                           GestureDetector(
                             onTap: () {
                               setState(() {
-                                isSingupScreen = true;
+                                isSignupScreen = true;
                               });
                             },
                             child: Column(
                               children: [
                                 Text(
-                                  'SINGUP',
+                                  'SIGNUP',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: isSingupScreen
+                                    color: isSignupScreen
                                         ? Palette.activeColor
                                         : Palette.textColor1,
                                   ),
                                 ),
-                                if (isSingupScreen)
+                                if (isSignupScreen)
                                   Container(
                                     margin: const EdgeInsets.only(top: 3.0),
                                     height: 2.0,
@@ -158,8 +158,8 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
                           )
                         ],
                       ),
-                      if (isSingupScreen) buildSignupSection(),
-                      if (!isSingupScreen) buildSigninSection()
+                      if (isSignupScreen) buildSignupSection(),
+                      if (!isSignupScreen) buildSigninSection()
                     ],
                   ),
                 ),
@@ -175,7 +175,7 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
             right: 0.0,
             child: Column(
               children: [
-                Text(isSingupScreen ? 'or Signup with' : 'Or Signin with'),
+                Text(isSignupScreen ? 'or Signup with' : 'Or Signin with'),
                 Container(
                   margin:
                       const EdgeInsets.only(left: 20.0, right: 20.0, top: 15.0),
@@ -381,7 +381,7 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
 
   Widget builtBottomHalfContainer(bool showShadow) {
     return AnimatedPositioned(
-      top: isSingupScreen ? 535.0 : 435.0,
+      top: isSignupScreen ? 535.0 : 435.0,
       right: 0.0,
       left: 0.0,
       duration: const Duration(milliseconds: 700),
@@ -424,7 +424,7 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
                     color: Colors.white,
                   ),
                 )
-              : Center(),
+              : const Center(),
         ),
       ),
     );
